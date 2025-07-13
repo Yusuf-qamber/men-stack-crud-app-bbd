@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Dosis:wght@200..800&family=Londrina+Shadow&family=Raleway:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  background: #fff8ed;
+  font-family: "DM Sans", sans-serif;
+  text-align: center;
+  /* new CSS below */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+h1 {
+  color: #769642;
+  font-size: 3.6em;
+}
+
+footer {
+  font-size: 0.7em;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
