@@ -33,4 +33,32 @@ router.get("/:businessId", async (req, res) => {
   res.render("businesses/show.ejs", { foundBusiness: foundBusiness });
 });
 
+router.delete("/:businessId", async (req, res) => {
+  await Business.findByIdAndDelete(req.params.businessId);
+  res.send("This is the delete route");
+});
+
+// GET /businesses/:businessId/edit
+// controller function should render 'businesses/edit.ejs' <--- ejs file should have edit form
+
+router.get("/:businessId/edit", async (req, res) => {
+  const foundBusiness = await Business.findById(req.params.businessId);
+  // console.log(foundBusiness);
+  res.render("businesses/edit.ejs", { foundBusiness: foundBusiness });
+});
+
+//PUT for submitting the form
+router.put("/:businessId", async (req, res) => {
+  console.log(req.body);
+
+  if (req.body.isVerified === "on") {
+    req.body.isVerified = true;
+  } else {
+    req.body.isVerified = false;
+  }
+  console.log(req.body);
+  await Business.findByIdAndUpdate(req.params.businessId, req.body);
+  res.redirect(`/businesses/${req.params.businessId}`);
+});
+
 module.exports = router;
